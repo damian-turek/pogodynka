@@ -19,19 +19,19 @@ class Measurement
     private ?Location $location = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTime $date = null;
+    private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 0)]
-    private ?string $celcius = null;
+    #[ORM\Column(type: 'float')]
+    private ?float $celcius = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $rainfall = null;
+    #[ORM\Column(type: 'float')]
+    private ?float $rainfall = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $windSpeed = null;
+    #[ORM\Column(type: 'float')]
+    private ?float $windSpeed = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $humidity = null;
+    #[ORM\Column(type: 'float')]
+    private ?float $humidity = null;
 
     public function getId(): ?int
     {
@@ -46,67 +46,61 @@ class Measurement
     public function setLocation(?Location $location): static
     {
         $this->location = $location;
-
         return $this;
     }
 
-    public function getDate(): ?\DateTime
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(\DateTime $date): static
+    public function setDate(?\DateTimeInterface $date): static
     {
         $this->date = $date;
-
         return $this;
     }
 
-    public function getCelcius(): ?string
+    public function getCelcius(): ?float
     {
         return $this->celcius;
     }
 
-    public function setCelcius(string $celcius): static
+    public function setCelcius(float $celcius): static
     {
         $this->celcius = $celcius;
-
         return $this;
     }
 
-    public function getRainfall(): ?string
+    public function getRainfall(): ?float
     {
         return $this->rainfall;
     }
 
-    public function setRainfall(string $rainfall): static
+    public function setRainfall(float $rainfall): static
     {
         $this->rainfall = $rainfall;
-
         return $this;
     }
 
-    public function getWindSpeed(): ?string
+    public function getWindSpeed(): ?float
     {
         return $this->windSpeed;
     }
 
-    public function setWindSpeed(string $windSpeed): static
+    public function setWindSpeed(float $windSpeed): static
     {
         $this->windSpeed = $windSpeed;
-
         return $this;
     }
 
-    public function getHumidity(): ?string
+    public function getHumidity(): ?float
     {
         return $this->humidity;
     }
 
-    public function setHumidity(string $humidity): static
+    public function setHumidity(float $humidity): static
     {
         $this->humidity = $humidity;
-
         return $this;
     }
 }

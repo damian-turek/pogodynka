@@ -1,0 +1,77 @@
+App\Entity\Location:
+    country:
+        - NotBlank:
+            message: 'Kraj jest wymagany.'
+            groups: [Default, Create]
+    latitude:
+        - NotBlank:
+            message: 'Szerokość geograficzna jest wymagana.'
+            groups: [Default, Create]
+        - Type:
+            type: float
+            message: 'Szerokość geograficzna musi być liczbą.'
+            groups: [Default, Create]
+    longitude:
+        - NotBlank:
+            message: 'Długość geograficzna jest wymagana.'
+            groups: [Default, Create]
+        - Type:
+            type: float
+            message: 'Długość geograficzna musi być liczbą.'
+            groups: [Default, Create]
+
+
+
+
+App\Entity\Measurement:
+properties:
+    location:
+        - NotNull:
+            message: 'Lokalizacja jest wymagana.'
+            groups: [Default, Create]
+
+
+    date:
+        - NotBlank:
+            message: 'Data pomiaru jest wymagana.'
+            groups: [Default, Create]
+
+
+    celcius:
+        - NotBlank:
+            message: 'Temperatura jest wymagana.'
+            groups: [Default, Create]
+        - Type:
+            type: float
+            message: 'Temperatura musi być liczbą.'
+            groups: [Default, Create]
+
+
+    rainfall:
+        - NotBlank:
+            message: 'Opady są wymagane.'
+            groups: [Default, Create]
+        - Type:
+            type: float
+            message: 'Opady muszą być liczbą.'
+            groups: [Default, Create]
+
+
+    windSpeed:
+        - NotBlank:
+            message: 'Prędkość wiatru jest wymagana.'
+            groups: [Default, Create]
+        - Type:
+            type: float
+            message: 'Prędkość wiatru musi być liczbą.'
+            groups: [Default, Create]
+
+
+    humidity:
+        - NotBlank:
+            message: 'Wilgotność jest wymagana.'
+            groups: [Default, Create]
+        - Type:
+                type: float
+                message: 'Wilgotność musi być liczbą.'
+                groups: [Default, Create]
