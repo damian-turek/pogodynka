@@ -27,8 +27,13 @@
                 <td>{{ measurement.windSpeed }}</td>
                 <td>{{ measurement.humidity }}</td>
                 <td>
+
+                    {% if is_granted('ROLE_MEASUREMENT_SHOW') %}
                     <a href="{{ path('app_measurement_show', {'id': measurement.id}) }}">show</a>
+                    {% endif %}
+                    {% if is_granted('EDIT') %}
                     <a href="{{ path('app_measurement_edit', {'id': measurement.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -39,5 +44,7 @@
         </tbody>
     </table>
 
+    {% if is_granted('ROLE_MEASUREMENT_NEW') %}
     <a href="{{ path('app_measurement_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}
