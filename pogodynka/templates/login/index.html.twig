@@ -8,8 +8,12 @@
     {% endif %}
 
     <form action="{{ path('app_login') }}" method="post">
-        <label for="üsername">Username:</label>
-{#        TODO: dokoncz #}
-{#        <input #}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" />
+
+        <button type="submit">login</button>
     </form>
 {% endblock %}
